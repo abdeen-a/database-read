@@ -9,6 +9,7 @@ import java.util.List;
 public interface CategoryService {
 
     public List<CategoryDTO> getALlCategories();
+    public CategoryDTO getCategory(Integer categoryId);
 
 
 }

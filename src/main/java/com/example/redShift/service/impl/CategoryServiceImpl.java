@@ -19,5 +19,9 @@ public class CategoryServiceImpl implements CategoryService {
       return CategoryAdapter.getCategoryDtoList(result);
    }
 
-
+   @Override
+   public CategoryDTO getCategory(Integer categoryId) {
+      Category result = categoryRepo.findById(categoryId).orElseThrow();
+      return CategoryAdapter.getCategoryDTO(result);
+   }
 }

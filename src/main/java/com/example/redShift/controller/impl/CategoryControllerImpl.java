@@ -1,6 +1,5 @@
 package com.example.redShift.controller.impl;
 
-import com.example.redShift.controller.CategoryController;
 import com.example.redShift.dto.CategoryDTO;
 import com.example.redShift.service.CategoryService;
 import lombok.extern.slf4j.Slf4j;
@@ -15,19 +14,24 @@ import java.util.List;
 
 @RestController
 @Slf4j
-public class CategoryControllerImpl implements CategoryController {
+public class CategoryControllerImpl {
 
     @Autowired
     private CategoryService categoryServiceImpl;
 
+    @GetMapping("category/{categoryId}")
+    public ResponseEntity<?> getCategory(@PathVariable Integer categoryId) {
+        log.info("getting category for {} ", categoryId);
+        CategoryDTO result = categoryServiceImpl.getCategory(categoryId);
+        log.info("category back {} ", result.toString());
+        return new ResponseEntity<CategoryDTO>(result, HttpStatus.OK);
+    }
 
-    @GetMapping("/redshift/{param}")
-    public ResponseEntity<?> getData(@PathVariable String param) {
-        log.info("getData for {} ", param);
+    @GetMapping("/category")
+    public ResponseEntity<?> getAllCategories() {
+        log.info("Getting all categories");
         List<CategoryDTO> result = categoryServiceImpl.getALlCategories();
         log.info("Data back {} ", result.toString());
         return new ResponseEntity<List<CategoryDTO>>(result, HttpStatus.OK);
     }
-
-
 }
