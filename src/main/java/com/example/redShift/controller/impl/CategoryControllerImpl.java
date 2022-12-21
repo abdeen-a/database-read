@@ -1,9 +1,8 @@
 package com.example.redShift.controller.impl;
 
-import com.example.redShift.controller.RedShiftController;
+import com.example.redShift.controller.CategoryController;
 import com.example.redShift.dto.CategoryDTO;
-import com.example.redShift.service.RedshiftService;
-import com.example.redShift.service.impl.RedshiftServiceImpl;
+import com.example.redShift.service.CategoryService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,16 +15,16 @@ import java.util.List;
 
 @RestController
 @Slf4j
-public class RedShiftControllerImpl implements RedShiftController {
+public class CategoryControllerImpl implements CategoryController {
 
     @Autowired
-    private RedshiftService redshiftServiceImpl;
+    private CategoryService categoryServiceImpl;
 
 
     @GetMapping("/redshift/{param}")
     public ResponseEntity<?> getData(@PathVariable String param) {
         log.info("getData for {} ", param);
-        List<CategoryDTO> result = redshiftServiceImpl.getALlCategories();
+        List<CategoryDTO> result = categoryServiceImpl.getALlCategories();
         log.info("Data back {} ", result.toString());
         return new ResponseEntity<List<CategoryDTO>>(result, HttpStatus.OK);
     }

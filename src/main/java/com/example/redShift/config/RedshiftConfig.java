@@ -27,6 +27,4 @@ public class RedshiftConfig {
         dataSource.setPassword(password);
         return dataSource;
     }
-
-
 }

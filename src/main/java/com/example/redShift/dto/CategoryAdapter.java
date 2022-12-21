@@ -29,12 +29,10 @@ public class CategoryAdapter {
         return categoryDTO;
     }
 
-    public static List<CategoryDTO> getAccountDTOList(List<Category> categories) {
+    public static List<CategoryDTO> getCategoryDtoList(List<Category> categories) {
         List<CategoryDTO> categoryDTOList = new ArrayList<CategoryDTO>();
         if (categories != null) {
-            for (Category category : categories) {
-                categoryDTOList.add(getCategoryDTO(category));
-            }
+            categories.forEach(c -> categoryDTOList.add(getCategoryDTO(c)));
         }
         return categoryDTOList;
     }
