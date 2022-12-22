@@ -1,6 +1,7 @@
-package com.example.redShift.model;
+package com.model;
 
 
+import com.model.baseEntity.BaseEntity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -13,9 +14,9 @@ import lombok.NoArgsConstructor;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class Category {
-    @Id
-    private Integer catid;
+public class Category extends BaseEntity {
+
+    //private Integer catid;
     private String catgroup;
     private String catname;
     private String catdesc;

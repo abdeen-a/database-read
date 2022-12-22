@@ -1,4 +1,4 @@
-package com.example.redShift.exception;
+package com.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
